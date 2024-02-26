@@ -7,6 +7,7 @@ const RootReducer = createSlice({
   name: "tasks",
   initialState: {
     list: Tache,
+    filter : 'all'
   },
 
   //Définition des actions sous forme de fonction
@@ -24,10 +25,14 @@ const RootReducer = createSlice({
 
     ajouterUneTache :(state, action)=>{
         state.list.push(action.payload)
+    },
+
+    filterTache : (state, action)=>{
+      state.filter = action.payload
     }
   }
 });
-export const {modifierTache, ajouterUneTache} = RootReducer.actions
+export const {modifierTache, ajouterUneTache,filterTache} = RootReducer.actions
 export default RootReducer.reducer;
 
 
